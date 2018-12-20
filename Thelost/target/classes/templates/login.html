@@ -1,0 +1,240 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>登录</title>
+<style>
+ body{
+	 height:100%;
+	 width:100%;
+	 background:#FFF;
+	 }
+	 #af{
+		 height:850px;
+		 width:1600px;
+		 background-color:#036;
+		 position:absolute;
+		 top:5%;
+		 left:8.5%;
+		 }
+	#login{
+		 height:40%;
+		 width:25%;
+		 background-color:#06C;
+		 position:absolute;
+		 top:8%;
+		 left:4%;
+		 border-radius:6px 0px 0px 6px;
+		}
+	#register{
+		 height:40%;
+		 width:20%;
+		 background-color:#06C;
+		 position:absolute;
+		 bottom:8%;
+		 left:4%;
+		}
+	#login_table{
+		height:84%;
+		width:70%;
+		background-color:#06C;
+		 position:absolute;
+		 bottom:8%;
+		 left:26%;
+		}
+		.title{
+			cursor:default;
+			 font-family:Verdana;
+			 font-size:48px;
+			 padding:0px;
+			 color:#FFF;
+			 position:absolute;
+			 top:-1%;
+			 left:10%;
+			}
+		.hr{
+			 height:5px;
+			 width:80%;
+			 position:absolute;
+			 top:15%;
+			 left:10%;
+			 background-color:#FFF;
+			}
+		.hrd{
+			 height:5px;
+			 width:80%;
+			 position:absolute;
+			 top:80%;
+			 left:10%;
+			 background-color:#FFF;
+			}
+		#username{
+			 font-family:Verdana;
+			 font-size:36px;
+			 padding:0px;
+			 color:#FFF;
+			 position:absolute;
+			 top:30%;
+			 left:27%;
+			}
+		#username_text{
+			 position:absolute;
+			 top:32.5%;
+			 left:40%;
+			}
+		#password{
+			 font-family:Verdana;
+			 font-size:36px;
+			 padding:0px;
+			 color:#FFF;
+			 position:absolute;
+			 top:45%;
+			 left:27%;
+			}	
+		#password_text{
+			 position:absolute;
+			 top:47.5%;
+			 left:40%;
+			}				
+		.text{
+			 font-family:Verdana;
+			 font-size:26px;
+			height:36px;
+			width:280px;
+			border-radius:6px;
+			}
+		#button{
+			color: #FFF;
+			font-size:30px;
+			font-family:"Courier New";
+			height:45px;
+			width:435px;
+			background:#036;
+			position:absolute;
+			top:67%;
+			left:27%;
+			cursor:pointer;
+			}
+		#denglu_text{
+			position:absolute;
+			top:10%;
+			left:40%;
+			}		
+		#zhaohui{
+			 color:#FFF;
+			 position:absolute;
+			 top:85%;
+			 left:75%;
+			}
+		a{
+			 padding:0px 10px;
+			 font-family:Verdana;
+			 font-size:30px;
+			 color:#FFF;
+			 text-decoration:none;
+			}
+		.s{
+			cursor:default;
+			}	
+		.warning_te{
+		 	cursor:default;
+			font-family:Verdana;
+			font-size:24px;
+			padding:0px;
+			color:#F00;
+			position:absolute;
+			top:-30%;
+			left:5%;
+		}	
+		#warning{
+			background:#06C;
+			height:50px;
+			width:400px;
+			position:absolute;
+			left:54%;
+			top:10%;
+			}	
+		#loginjpg{
+			position:relative;
+			left:10px;
+			}					 
+</style>
+<script src="js/jquery.min.js" type="text/javascript"></script>
+<script>
+	$(function(){
+		$("#button").click(function(){
+			 	var name=$("#name").val();
+				var pass=$("#pass").val();
+				if(name!=null&&name!=""&&pass!=null&&pass!=""){
+					if(name.length>=8&&name.length<=20){
+						if(pass.length>=6&&pass.length<=20){
+							/* $.post("Uesrss-login","name="+name+"&pass="+pass,function(hz){
+								if(hz="Y"){
+									window.location="homepage.html";
+								}else{
+									$("#warning_text").text("*warn:密码错误！");
+								}
+							}); */
+						}else{
+							$("#warning_text").text("*warn:密码长度为6~20!");
+						}
+					}else{
+						$("#warning_text").text("*warn:用户名长度为8~20!");
+					}
+				}else{
+					$("#warning_text").text("*warn:文本框不能为空！");
+				}
+			});
+			
+			
+		$("#register").click(function(){
+			window.location="register.html";
+			});	
+		$("#name").blur(function(){
+			var name=$("#name").val();
+			var warning;
+			if(name.length<8||name.length>20){
+				warning="*warn:用户名长度为8~20";
+			}
+			$("#warning_text").text(warning);					
+		});	
+		$("#pass").blur(function(){
+			var pass=$("#pass").val();
+			var warning;
+			if(pass.length<6||pass.length>20){
+				warning="*warn:密码长度为8~20";
+			}
+			$("#warning_text").text(warning);
+		});	
+		$("input").click(function(){
+			$("#warning_text").text("");
+		});
+	})
+</script>
+</head>
+<body>
+<div id="af">
+	<div id="login"><img src="static/images/login.jpg" id="loginjpg"/></div>
+    <div id="register"><img src="static/images/toregister.jpg" /></div>
+    <div id="login_table">
+    <div id="warning"><p id="warning_text" class="warning_te"></p></div>
+    <form action="Uesrss-login" method="post">
+    	<p id="login_text" class="title">Login...</p>
+        <p id="login_hr" class="hr"></p>
+        <p id="username" class="s">账号:</p>
+        <p id="username_text"><input id="name" class="text" name="uname"
+        							onkeyup="this.value=this.value.replace(/\s+/g,'')"/></p>
+        <p id="password"  class="s">密码:</p>
+        <p id="password_text"><input type="password" id="pass" class="text" name="upassword"
+        							onkeyup="this.value=this.value.replace(/\s+/g,'')"/></p>
+		<!-- <div id="button"><a href="#" id="denglu_text">登录</a></div> -->
+		<INPUT name="submit" class="input-button" type="submit" value="登录" id="button">
+        <p id="login_hrd" class="hrd"></p>
+      </form>
+         
+        <p id="zhaohui"><a href="http://www.baidu.com" id="zz">找回密码&nbsp;→</a></p>
+       
+    </div>
+</div>
+</body>
+</html>
