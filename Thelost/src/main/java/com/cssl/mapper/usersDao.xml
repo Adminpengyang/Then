@@ -8,5 +8,10 @@
   
   </select>
   
+  <insert id="save" parameterType="Users" >
+     
+  
+  </insert>
+  
   
   </mapper>
