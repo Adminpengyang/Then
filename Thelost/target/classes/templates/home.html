@@ -1,0 +1,147 @@
+<!doctype html>
+<html>
+<head>
+<title>主页</title>
+<style>
+body{
+	 height:100%;
+	 width:100%;
+	 background:#FFF;
+	 }
+	 #af{
+		 height:850px;
+		 width:1600px;
+		 background-color:#036;
+		 position:absolute;
+		 top:5%;
+		 left:8.5%;
+	}
+		#logo{
+			 position:absolute;
+		     top:8%;
+		     left:7%;
+		}
+		#zhaoling{
+			 position:absolute;
+		 	 top:8%;
+			 right:51%;
+		}
+		#xunwu{
+			 position:absolute;
+		 	 top:8%;
+			 left:51%;
+		}
+		#xunren{
+			 position:absolute;
+		 	 top:8%;
+			 right:7%; 
+		}
+	.div{
+		 border-radius:6px 6px 6px 6px;
+		 cursor:pointer;
+		 height:40%;
+		 width:20%;
+		 background-color:#06C;
+		}
+	.div:hover{
+		  background-color:#000062;
+		  transform: scale(1.05,1.05);
+		}	
+	.Ldiv{
+		 border-radius:6px 6px 6px 6px;
+		 height:40%;
+		 width:20%;
+		 background-color:#06c;
+		}	
+		#user_picture{
+			 position:absolute;
+		 	 bottom:8%;
+		 	 left:7%;
+		}	
+		#user_family{
+			 position:absolute;
+		 	 bottom:8%;
+		 	 right:51%;
+			}
+		#user_setting{
+			 position:absolute;
+		 	 bottom:8%;
+		 	 left:51%;
+			}
+		#help{
+			 position:absolute;
+		 	 bottom:8%;
+		 	 right:7%;
+			}	
+	img{
+		position:absolute;
+		top:5%;
+		left:5%;
+		}
+	#picture{
+		height:60%;
+		width:65%;
+		border-radius:50%;
+		background-color:#06c;
+		position:absolute;
+		top:19%;
+		left:15%;
+		}
+	#up{
+		height:100%;
+		width:100%;
+		border-radius:50%
+		}								
+</style>
+
+<script src="js/jquery.min.js" type="text/javascript"></script>
+<script>
+	$(function(){
+		$.get("",function(hz){
+			$("#up").remove();
+			var s="<img  id='up'src='static/images/"+hz+"'>";
+			$("#picture").append(s);
+		});
+		
+		<!--前往招领广场-->
+		$("#zhaoling").click(function(){
+			window.location="zhaoling.html";
+		});
+		<!--前往寻物广场-->
+		$("#xunwu").click(function(){
+			window.location="xunwu.html";
+		});
+		<!--前往寻人广场-->
+		$("#xunren").click(function(){
+			window.location="xunren.html";
+		});
+		
+		<!--前往用户空间-->
+		$("#user_family").click(function(){
+			window.location="user_family.html";
+		});
+		<!--前往设置面板-->
+		$("#user_setting").click(function(){
+			window.location="user_setting.html";
+		});
+		<!--前往帮助关于-->
+		$("#help").click(function(){
+			window.location="help.html";
+		});
+	});
+</script>
+</head>
+
+<body>
+<div id="af">
+    <div id="logo" class="Ldiv"><img src="static/images/chansgha.jpg" height="90%" width="90%"></div>
+    <div id="zhaoling" class="div"><img src="static/images/zhaoling.jpg" height="90%" width="90%"></div>
+    <div id="xunwu" class="div"><img src="static/images/xunwu.jpg" height="90%" width="90%"></div>
+    <div id="xunren" class="div"><img src="static/images/xunren.jpg" height="90%" width="90%"></div>
+    <div id="user_picture" class="Ldiv"><div id="picture"><img  id="up"src="static/images/timg.jpg"></div></div>
+    <div id="user_family" class="div"><img src="static/images/users_family.jpg" height="90%" width="90%"></div>
+    <div id="user_setting" class="div"><img src="static/images/setting.jpg" height="90%" width="90%"></div>
+    <div id="help" class="div"><img src="static/images/help.jpg" height="90%" width="90%"></div>
+</div>
+</body>
+</html>
