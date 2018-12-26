@@ -21,4 +21,14 @@ public class usersServiceImpl implements usersService {
 		return us.login(user);
 	}
 
+	
+	/**
+	 * 注册
+	 */
+	@Override
+	public int save(Users user) {
+	
+		return us.save(user);
+	}
+
 }

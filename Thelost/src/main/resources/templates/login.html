@@ -161,55 +161,8 @@
 </style>
 <script src="js/jquery.min.js" type="text/javascript"></script>
 <script>
-	$(function(){
-		$("#button").click(function(){
-			 	var name=$("#name").val();
-				var pass=$("#pass").val();
-				if(name!=null&&name!=""&&pass!=null&&pass!=""){
-					if(name.length>=8&&name.length<=20){
-						if(pass.length>=6&&pass.length<=20){
-							/* $.post("Uesrss-login","name="+name+"&pass="+pass,function(hz){
-								if(hz="Y"){
-									window.location="homepage.html";
-								}else{
-									$("#warning_text").text("*warn:密码错误！");
-								}
-							}); */
-						}else{
-							$("#warning_text").text("*warn:密码长度为6~20!");
-						}
-					}else{
-						$("#warning_text").text("*warn:用户名长度为8~20!");
-					}
-				}else{
-					$("#warning_text").text("*warn:文本框不能为空！");
-				}
-			});
-			
-			
-		$("#register").click(function(){
-			window.location="register.html";
-			});	
-		$("#name").blur(function(){
-			var name=$("#name").val();
-			var warning;
-			if(name.length<8||name.length>20){
-				warning="*warn:用户名长度为8~20";
-			}
-			$("#warning_text").text(warning);					
-		});	
-		$("#pass").blur(function(){
-			var pass=$("#pass").val();
-			var warning;
-			if(pass.length<6||pass.length>20){
-				warning="*warn:密码长度为8~20";
-			}
-			$("#warning_text").text(warning);
-		});	
-		$("input").click(function(){
-			$("#warning_text").text("");
-		});
-	})
+ 
+	
 </script>
 </head>
 <body>
@@ -218,22 +171,23 @@
     <div id="register"><img src="static/images/toregister.jpg" /></div>
     <div id="login_table">
     <div id="warning"><p id="warning_text" class="warning_te"></p></div>
-    <form action="Uesrss-login" method="post">
     	<p id="login_text" class="title">Login...</p>
+	
         <p id="login_hr" class="hr"></p>
+	    <form action="Uesrss-login" method="post">
+		<DL id="loginBox">
         <p id="username" class="s">账号:</p>
-        <p id="username_text"><input id="name" class="text" name="uname"
+        <p id="username_text"><input id="name" class="text" name="uname" type="text"
         							onkeyup="this.value=this.value.replace(/\s+/g,'')"/></p>
         <p id="password"  class="s">密码:</p>
-        <p id="password_text"><input type="password" id="pass" class="text" name="upassword"
+        <p id="password_text"><input type="password" id="pass" class="text" name="upassword" type="upassword"
         							onkeyup="this.value=this.value.replace(/\s+/g,'')"/></p>
-		<!-- <div id="button"><a href="#" id="denglu_text">登录</a></div> -->
 		<INPUT name="submit" class="input-button" type="submit" value="登录" id="button">
+		<div th:text="${msg}"></div>
         <p id="login_hrd" class="hrd"></p>
-      </form>
-         
         <p id="zhaohui"><a href="http://www.baidu.com" id="zz">找回密码&nbsp;→</a></p>
-       
+		</DL>
+		</form>
     </div>
 </div>
 </body>

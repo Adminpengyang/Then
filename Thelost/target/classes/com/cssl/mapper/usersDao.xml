@@ -8,5 +8,10 @@
   
   </select>
   
+  <insert id="save" parameterType="Users">
+    INSERT INTO users (uid,uname,upassword,sex,age,phone,idcard,email,numberof,picturepath)
+    VALUES(0,#{uname},#{upassword},#{sex},#{age},#{phone},#{idcard},#{email},#{unmberof},#{picturepath})
+  </insert>
+  
   
   </mapper>

@@ -10,4 +10,9 @@ public interface usersDao {
 	 * @return
 	 */
 	public Users login(Users user);
+	/**
+	 * 注册
+	 * 
+	 */
+	public int save(Users user);
 }
